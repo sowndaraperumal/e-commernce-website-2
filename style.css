@@ -738,8 +738,123 @@ form.search button:hover {
   line-height: 1;
   background-color: var(--white-color);
   opacity: .5;
-  transition: var(--trans-background-color),opacity .3s;
+  transition: var(--trans-background-color), opacity .3s;
 }
+.products .item:hover .hoverable li a {
+  opacity: 1;
+}
+
+.products .hoverable li a:hover {
+  color: var(--white-color);
+  background-color: var(--dark-color);
+}
+.products .hoverable li.active a:hover {
+  background-color: var(--primary-color);
+}
+.products .hoverable li:not(.active){
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform .3s, opacity .2s;
+}
+.products .item:hover .hoverable li {
+  transform: translateX(0);
+  opacity: 1;
+}
+.products .hoverable li:last-child {
+  transition-delay: .1s;
+}
+.products .discount {
+  top: auto;
+  right: 0;
+  left: auto;
+  bottom: 0;
+  background-color: transparent;
+  z-index: 1;
+}
+.products .discount::before {
+  background-color: var(--dark-color);
+}
+.products .discount span {
+  position: relative;
+  font-size:  var(--font-smaller);
+  font-weight: var(--fw5);
+  color: var(--white-color);
+}
+
+.products .content {
+  display: flex;
+  flex-direction: column;
+}
+.products:where(.big, .main.one) .content {
+  gap: 1em;
+  margin-top: 1.25em;
+}
+.products .rating {
+  display: flex;
+  align-items: center;
+  gap:0.5em;
+}
+.products .rating .stars {
+  width: 80px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='rgba(240,187,64,1)'%3E%3Cpath d='M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z'%3E%3C/path%3E%3C/svg%3E");
+  background-position-y: top;
+  background-repeat-y: no-repeat;
+}
+.products  h3 {
+  font-family: "Rubik";
+  font-size: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.products h3 a:hover {
+  text-decoration: underline;
+}
+
+.products .price .current {
+  font-size: calc(1em + 1vW);
+  color: var(--primary-color);
+  margin-right: 0.25em;
+}
+.products .price .normal {
+  color:  var(--ligth-text-color);
+  text-decoration: line-through;
+}
+.products .stock .qty {
+  display: flex;
+  justify-content: space-between;
+}
+.products .stock .bar {
+  height: 3px;
+  margin-top: 1em;
+  background-color: var(--border-color);
+  overflow: hidden;
+}
+.products .stock .available {
+  height: 3px;
+  width: 21%;
+  background-color: var(--secondary-color);
+}
+
+.products .item {
+  display: flex;
+  position: relative;
+}
+
+.products .stock-danger {
+  color: var(--primary-color);
+}
+
+.flexwrap .row {
+  flex: 0 0 100%;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+
 
 
 /* 04. PRODUCT-------------------- 
@@ -755,15 +870,40 @@ form.search button:hover {
 }
 
 
-
-
 /* 04. PRODUCT-------------------- 
  * c. MINI product
 *--------------------- */
+.products.mini .item {
+  margin-bottom: 2em;
+}
+.products.mini .media {
+  width: 130px;
+  height: 160px;
+  margin-right: 1.25em;
+}
+.products.mini .content {
+  margin: 0;
+  gap: 0.75em;
+}
+.products:where(.mini, .main) h3 {
+  font-weight: 400;
+}
+
+
 /* 04. PRODUCT-------------------- 
  *  d. MAIN product
 *--------------------- */
+.products.main .item {
+  flex-direction: column;
+  flex: 0 0 100%;
+  padding: 0 0.938em;
+  padding-bottom: 2em;
+}
 
+.products.main .media {
+  height: 390px;
+
+}
 /* -------------------- 
  *  05. BANNER  
 *--------------------- */
@@ -841,6 +981,25 @@ form.search button:hover {
  
   
 *--------------------- */
+
+
+@media screen and  (min-width: 481px){
+  .products.main .item {
+    flex: 0 0 50%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .products .price .current {
+    font-size: 1.25em;
+  }
+  .products.mini {
+    flex: 0 0 50%;
+  }
+  .products.main .item {
+    flex: 0 0 33.3333%;
+  }
+}
+
 
 @media screen and (min-width: 992px) {
   .container {
@@ -1019,5 +1178,8 @@ form.search button:hover {
   }
   .products.big .media {
     max-height: 373px;
+  }
+  .products.mini {
+    flex: 0 0 25%;
   }
 }
