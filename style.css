@@ -487,14 +487,13 @@ form.search button:hover {
   z-index: 1000;
   transform: translateX(-100%);
   visibility: hidden;
-  transition: transform .4s, visibility .4s;
-  will-change: transform,visibility ;
-
+  transition: transform 0.4s, visibility 0.4s;
+  will-change: transform, visibility;
 }
-.showmenu .site-off  {
+.showmenu .site-off {
   transform: translateX(0);
   visibility: visible;
-  transform:  transform .4s 0,visibility 0s 0s ;
+  transform: transform 0.4s 0, visibility 0s 0s;
 }
 .site-off .off-canvas {
   width: var(--percent100);
@@ -547,9 +546,9 @@ form.search button:hover {
   height: auto;
   max-height: 0;
   overflow: hidden;
-  transition: max-height .3s cubic-bezier(0.215, 0.610, 0.355, 1);
+  transition: max-height 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.off-canvas .expand  > :where(ul, .mega){
+.off-canvas .expand > :where(ul, .mega) {
   max-height: 2000px;
   overflow: visible;
 }
@@ -601,13 +600,12 @@ form.search button:hover {
  *  02. SLIDER 
 *--------------------- */
 
-
 .slider .item {
   position: relative;
   height: 474px;
 }
 .slider .item::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 30%;
   left: 0;
@@ -616,7 +614,7 @@ form.search button:hover {
   background-color: var(--white-color);
   z-index: 1;
   filter: blur(50px);
-  opacity: .8;
+  opacity: 0.8;
 }
 .slider .text-content {
   position: relative;
@@ -636,7 +634,7 @@ form.search button:hover {
 }
 .text-content :where(h2, h3) span:first-child {
   font-weight: var(--fw3);
-  columns:  var(--ligth-text-color);
+  columns: var(--ligth-text-color);
 }
 .text-content :where(h2, h3) span:last-child {
   color: var(--secondary-dark-color);
@@ -656,8 +654,8 @@ form.search button:hover {
   padding: 2em 0;
 }
 .brands .item img {
-  opacity: .25;
-  transition: opacity .3s;
+  opacity: 0.25;
+  transition: opacity 0.3s;
 }
 .brands .item a:hover img {
   opacity: 1;
@@ -678,11 +676,10 @@ form.search button:hover {
 }
 .sectop h2 span:not(.circle) {
   padding: 0 0 0 2em;
-} 
+}
 .sectop h2 .circle {
   top: -5px;
 }
-
 
 /* 04. PRODUCT-------------------- 
  *  a. Global product
@@ -710,15 +707,15 @@ form.search button:hover {
   border-radius: 5px;
 }
 .products .offer ul li:not(:last-child)::before {
-  content: ':';
+  content: ":";
   position: absolute;
   right: -0.6em;
   color: var(--ligth-text-color);
 }
 .products :where(.image, .thumbnail) img {
-  transition: transfrom .3s;
+  transition: transfrom 0.3s;
 }
-.products  :where(.image, .thumbnail):hover img {
+.products :where(.image, .thumbnail):hover img {
   transform: scale(1.1);
 }
 .products .hoverable {
@@ -737,10 +734,9 @@ form.search button:hover {
   border-radius: var(--percent50);
   line-height: 1;
   background-color: var(--white-color);
-  opacity: .5;
-  transition: var(--trans-background-color),opacity .3s;
+  opacity: 0.5;
+  transition: var(--trans-background-color), opacity 0.3s;
 }
-
 
 /* 04. PRODUCT-------------------- 
  *   b. BIG product
@@ -748,14 +744,11 @@ form.search button:hover {
 .products.big .item {
   flex-direction: column;
   padding: 2.5em;
-  border:  2px solid var(--secondary-dark-color);
+  border: 2px solid var(--secondary-dark-color);
   border-radius: 7px;
   max-width: 460px;
   margin: 0 auto;
 }
-
-
-
 
 /* 04. PRODUCT-------------------- 
  * c. MINI product
@@ -1009,11 +1002,11 @@ form.search button:hover {
   }
   /* Slider */
   .slider > div > .wrapper {
-    width: calc(100% - ( 300px + 2em));
+    width: calc(100% - (300px + 2em));
     margin-left: auto;
   }
 
-/* Product */
+  /* Product */
   .trending .products {
     flex: 0 0 33.3333%;
   }
