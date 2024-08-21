@@ -734,15 +734,10 @@ form.search button:hover {
   border-radius: var(--percent50);
   line-height: 1;
   background-color: var(--white-color);
-<<<<<<< HEAD
   opacity: 0.5;
   transition: var(--trans-background-color), opacity 0.3s;
 }
 
-=======
-  opacity: .5;
-  transition: var(--trans-background-color), opacity .3s;
-}
 .products .item:hover .hoverable li a {
   opacity: 1;
 }
@@ -860,7 +855,6 @@ form.search button:hover {
 
 
 
->>>>>>> 70098d05abf4b961e4429bcd5c39ed81106b2a05
 /* 04. PRODUCT-------------------- 
  *   b. BIG product
 *--------------------- */
@@ -873,10 +867,7 @@ form.search button:hover {
   margin: 0 auto;
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 70098d05abf4b961e4429bcd5c39ed81106b2a05
 /* 04. PRODUCT-------------------- 
  * c. MINI product
 *--------------------- */
