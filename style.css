@@ -734,9 +734,122 @@ form.search button:hover {
   border-radius: var(--percent50);
   line-height: 1;
   background-color: var(--white-color);
-<<<<<<< HEAD
   opacity: 0.5;
   transition: var(--trans-background-color), opacity 0.3s;
+}
+
+.products .item:hover .hoverable li a {
+  opacity: 1;
+}
+
+.products .hoverable li a:hover {
+  color: var(--white-color);
+  background-color: var(--dark-color);
+}
+.products .hoverable li.active a:hover {
+  background-color: var(--primary-color);
+}
+.products .hoverable li:not(.active) {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.2s;
+}
+.products .item:hover .hoverable li {
+  transform: translateX(0);
+  opacity: 1;
+}
+.products .hoverable li:last-child {
+  transition-delay: 0.1s;
+}
+.products .discount {
+  top: auto;
+  right: 0;
+  left: auto;
+  bottom: 0;
+  background-color: transparent;
+  z-index: 1;
+}
+.products .discount::before {
+  background-color: var(--dark-color);
+}
+.products .discount span {
+  position: relative;
+  font-size: var(--font-smaller);
+  font-weight: var(--fw5);
+  color: var(--white-color);
+}
+
+.products .content {
+  display: flex;
+  flex-direction: column;
+}
+.products:where(.big, .main.one) .content {
+  gap: 1em;
+  margin-top: 1.25em;
+}
+.products .rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.products .rating .stars {
+  width: 80px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' fill='rgba(240,187,64,1)'%3E%3Cpath d='M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z'%3E%3C/path%3E%3C/svg%3E");
+  background-position-y: top;
+  background-repeat-y: no-repeat;
+}
+.products h3 {
+  font-family: "Rubik";
+  font-size: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.products h3 a:hover {
+  text-decoration: underline;
+}
+
+.products .price .current {
+  font-size: calc(1em + 1vw);
+  color: var(--primary-color);
+  margin-right: 0.25em;
+}
+.products .price .normal {
+  color: var(--ligth-text-color);
+  text-decoration: line-through;
+}
+.products .stock .qty {
+  display: flex;
+  justify-content: space-between;
+}
+.products .stock .bar {
+  height: 3px;
+  margin-top: 1em;
+  background-color: var(--border-color);
+  overflow: hidden;
+}
+.products .stock .available {
+  height: 3px;
+  width: 21%;
+  background-color: var(--secondary-color);
+}
+
+.products .item {
+  display: flex;
+  position: relative;
+}
+
+.products .stock-danger {
+  color: var(--primary-color);
+}
+
+.flexwrap .row {
+  flex: 0 0 100%;
+  width: 100%;
+  margin-bottom: 2em;
 }
 
 /* 04. PRODUCT-------------------- 
@@ -751,10 +864,6 @@ form.search button:hover {
   margin: 0 auto;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 70098d05abf4b961e4429bcd5c39ed81106b2a05
 /* 04. PRODUCT-------------------- 
  * c. MINI product
 *--------------------- */
@@ -773,7 +882,6 @@ form.search button:hover {
 .products:where(.mini, .main) h3 {
   font-weight: 400;
 }
-
 
 /* 04. PRODUCT-------------------- 
  *  d. MAIN product
@@ -866,8 +974,7 @@ form.search button:hover {
   
 *--------------------- */
 
-
-@media screen and  (min-width: 481px){
+@media screen and (min-width: 481px) {
   .products.main .item {
     flex: 0 0 50%;
   }
@@ -883,7 +990,6 @@ form.search button:hover {
     flex: 0 0 33.3333%;
   }
 }
-
 
 @media screen and (min-width: 992px) {
   .container {
