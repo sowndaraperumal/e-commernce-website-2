@@ -60,3 +60,39 @@ const swiper = new Swiper('.swiper', {
 
   
 });
+//show search
+
+const searchButton = document.querySelector('.t-search'), tclose = document.querySelector('.search-close'),
+showClass = document.querySelector('.site');
+
+searchButton.addEventListener('click',function(){
+  showClass.classList.toggle('showsearch')
+})
+tclose.addEventListener('click',function(){
+  showClass.classList.remove('showsearch')
+})
+
+//show time
+function updateTime() {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+
+
+  const timeString = `${hours}:${minutes}:${seconds}`;
+
+  
+  document.getElementById('hours').textContent = hours;
+  document.getElementById('minute').textContent = minutes;
+  document.getElementById('second').textContent = seconds;
+}
+updateTime();
+    setInterval(updateTime, 1000);
+
+//show dpt menu 
+const dptButtom =document.querySelector('.dpt-cat .dpt-trigger'), dptClass= document.querySelector('.site');
+
+dptButtom.addEventListener('click',function(){
+  dptClass.classList.toggle('showdpt')
+})

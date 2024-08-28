@@ -1228,21 +1228,99 @@ form.search button:hover {
 .menu-bottom nav li a:hover{
   color: var(--dark-color);
 }
+.menu-bottom nav ul li > a {
+  line-height: 1.3em;
+}
+.menu-bottom nav li a span {
+  font-size: var(--font-smaller);
+}
+.menu-bottom nav li a i {
+  font-size: 1.25em;
+}
+.menu-bottom .fly-item {
+  right: 50%;
+  width: 16px;
+  border-radius: var(--percent50);
+  border-right: -20px;
+  background-color: var(--secondary-dark-color);
+}
 /* 06.  BOTTOM MENU-------------------- 
  * a. Search
 *--------------------- */
+.search-bottom {
+  position: fixed;
+  bottom: 60px;
+  width: var(--percent100);
+  padding: 2.5em;
+  background-color: var(--secondary-dark-color);
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  will-change: visiblity, opacity;
+}
+.showsearch .search-bottom{
+  visibility: inherit;
+  opacity: 1;
+
+}
+.search-bottom .t-close {
+  position: absolute;
+  top: -54px;
+  right: 0;
+}
+.search-bottom .t-close:hover {
+  background-color: var(--primary-color);
+}
 
 /* -------------------- 
  * 07. OVERLAY
 *--------------------- */
-
+.overlay {
+  position: fixed;
+  width: var(--percent100);
+  height: var(--percent100);
+  top: 0;left: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.4);
+  visibility: hidden;
+  opacity: 0;
+  will-change: visibility, opacity;
+}
+.showmenu .overlay {
+  visibility: inherit;
+  opacity: 1;
+}
 /* -------------------- 
  * 08. PAGE SINGLE  
 *--------------------- */
+/* 08. PAGE SINGLE-------------------- 
+ * a. Department 
+*--------------------- */
+.page-home .dpt-cat .dpt-trigger, .dpt-trigger .ri-close-line, .showdpt .dpt-trigger .ri-menu-3-line {
+  display: none;
+}
+.showdpt .dpt-trigger .ri-close-line {
+  display: block;
+}
 
 /* 08. PAGE SINGLE-------------------- 
- * a. Breadcrumb
+ * b. Breadcrumb
 *--------------------- */
+.breadcrumb{
+  font-size: var(--font-small);
+  margin-bottom: 2em;
+}
+.breadcrumb li:not(:last-child)::after{
+  content: '/';
+  padding: 0 0.35em;
+}
+.breadcrumb li:last-child {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--ligth-text-color);
+}
 /* 08. PAGE SINGLE-------------------- 
  *b. Product details
 *--------------------- */
@@ -1530,5 +1608,12 @@ form.search button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  /* Page Single */
+  #page:not(.page-home) .dpt-menu{
+    display: none;
+  }
+  #page.showdpt .dpt-menu{
+    display: block;
   }
 }
