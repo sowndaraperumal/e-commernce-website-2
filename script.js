@@ -21,78 +21,102 @@ function copyMenu() {
 copyMenu();
 
 //mobile menu
-const menuButton=document.querySelector('.trigger'),
-closeButton=document.querySelector('.t-close'),
-addClass = document.querySelector('.site');
+const menuButton = document.querySelector(".trigger"),
+  closeButton = document.querySelector(".t-close"),
+  addClass = document.querySelector(".site");
 
-menuButton.addEventListener('click',function() {
-  addClass.classList.toggle('showmenu')
-})
+menuButton.addEventListener("click", function () {
+  addClass.classList.toggle("showmenu");
+});
 
-closeButton.addEventListener('click',function() {
-  addClass.classList.remove('showmenu')
-})
-
-
+closeButton.addEventListener("click", function () {
+  addClass.classList.remove("showmenu");
+});
 
 //show sub menu on mobile phone
 
-const submenu =document.querySelectorAll('.has-child .icon-small');
-submenu.forEach((menu) => menu.addEventListener('click', toggle));
+const submenu = document.querySelectorAll(".has-child .icon-small");
+submenu.forEach((menu) => menu.addEventListener("click", toggle));
 
-function toggle (e){
+function toggle(e) {
   e.preventDefault();
-  submenu.forEach((item) => item != this ? item.closest('.has-child').classList.remove('expand'): null);
-  if(this.closest('.has-child').classList != 'expand'){
-    this.closest('.has-child').classList.toggle('expand')
+  submenu.forEach((item) =>
+    item != this ? item.closest(".has-child").classList.remove("expand") : null
+  );
+  if (this.closest(".has-child").classList != "expand") {
+    this.closest(".has-child").classList.toggle("expand");
   }
 }
 
-// slider 
-const swiper = new Swiper('.swiper', {
- 
+// slider
+const swiper = new Swiper(".swiper", {
   loop: true,
 
   // If we need pagination
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
   },
-
-  
 });
 //show search
 
-const searchButton = document.querySelector('.t-search'), tclose = document.querySelector('.search-close'),
-showClass = document.querySelector('.site');
+const searchButton = document.querySelector(".t-search"),
+  tclose = document.querySelector(".search-close"),
+  showClass = document.querySelector(".site");
 
-searchButton.addEventListener('click',function(){
-  showClass.classList.toggle('showsearch')
-})
-tclose.addEventListener('click',function(){
-  showClass.classList.remove('showsearch')
-})
+searchButton.addEventListener("click", function () {
+  showClass.classList.toggle("showsearch");
+});
+tclose.addEventListener("click", function () {
+  showClass.classList.remove("showsearch");
+});
 
 //show time
 function updateTime() {
   const now = new Date();
-  const hours = now.getHours().toString().padStart(2, '0');
-  const minutes = now.getMinutes().toString().padStart(2, '0');
-  const seconds = now.getSeconds().toString().padStart(2, '0');
-
+  const hours = now.getHours().toString().padStart(2, "0");
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+  const seconds = now.getSeconds().toString().padStart(2, "0");
 
   const timeString = `${hours}:${minutes}:${seconds}`;
-
-  
-  document.getElementById('hours').textContent = hours;
-  document.getElementById('minute').textContent = minutes;
-  document.getElementById('second').textContent = seconds;
+  if (document.getElementById("hours")) {
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minute").textContent = minutes;
+    document.getElementById("second").textContent = seconds;
+  }
 }
 updateTime();
-    setInterval(updateTime, 1000);
+setInterval(updateTime, 1000);
 
-//show dpt menu 
-const dptButtom =document.querySelector('.dpt-cat .dpt-trigger'), dptClass= document.querySelector('.site');
+//show dpt menu
+const dptButtom = document.querySelector(".dpt-cat .dpt-trigger"),
+  dptClass = document.querySelector(".site");
 
-dptButtom.addEventListener('click',function(){
-  dptClass.classList.toggle('showdpt')
-})
+dptButtom.addEventListener("click", function () {
+  dptClass.classList.toggle("showdpt");
+});
+
+//product image slider
+var productThumb = new Swiper(".small-image", {
+  loop: true,
+  spaceBetween: 10,
+  slidesPerView: 3,
+  freeMode: true,
+  watchSlidesProgress: true,
+  breakpoints: {
+    481: {
+      spaceBetween: 32,
+    },
+  },
+});
+
+var productBig = new Swiper(".big-image", {
+  loop: true,
+  autoHeight: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  thumbs: {
+    swiper: productThumb,
+  },
+});
