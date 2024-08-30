@@ -78,11 +78,27 @@ function updateTime() {
   const seconds = now.getSeconds().toString().padStart(2, "0");
 
   const timeString = `${hours}:${minutes}:${seconds}`;
-  if (document.getElementById("hours")) {
-    document.getElementById("hours").textContent = hours;
+  if (document.getElementById("hour")) {
+    document.getElementById("hour").textContent = hours;
     document.getElementById("minute").textContent = minutes;
     document.getElementById("second").textContent = seconds;
+
+    // document.getElementById("hours").textContent = hours;
+    // document.getElementById("minutes").textContent = minutes;
+    // document.getElementById("seconds").textContent = seconds;
   }
+  let lhours = document.querySelectorAll("#hours");
+  lhours.forEach(
+    (hour) => (document.getElementById(hour.id).innerHTML = hours)
+  );
+  let lminute = document.querySelectorAll("#minutes");
+  lminute.forEach(
+    (minute) => (document.getElementById(minute.id).innerHTML = minutes)
+  );
+  let lsecond = document.querySelectorAll("#seconds");
+  lsecond.forEach(
+    (second) => (document.getElementById(second.id).innerHTML = seconds)
+  );
 }
 updateTime();
 setInterval(updateTime, 1000);
@@ -120,3 +136,12 @@ var productBig = new Swiper(".big-image", {
     swiper: productThumb,
   },
 });
+//stock products bar width percentage
+var stocks = document.querySelectorAll(".products .stock");
+for (let x = 0; x < stocks.length; x++) {
+  let stock = stocks[x].dataset.stock,
+    available = stocks[x].querySelector(".qty-available").innerHTML,
+    sold = stocks[x].querySelector(".qty-sold").innerHTML,
+    percent = (sold * 100) / stock;
+  stocks[x].querySelector(".available").style.width = percent + "%";
+}
