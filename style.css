@@ -2157,7 +2157,7 @@ input[type="range"]::-webkit-slider-thumb {
 .cart-summary .variant input:checked + label::before {
   opacity: 1;
 }
-.products.cart .cart-total table tr > * {
+.products.cart  .cart-total table tr > * {
   padding: 0;
 }
 
@@ -2172,14 +2172,22 @@ input[type="range"]::-webkit-slider-thumb {
 .cart-summary .cart-total table {
   width: var(--percent100);
 }
-.products.cart .cart-total table tr {
+.cart-summary  .cart-total table tr {
   display: flex;
   justify-content: space-between;
 }
-.products.cart .cart-total td {
+.cart-summary .grand-total td {
   font-size: 2em;
   font-family: "Poppins";
   font-weight: var(--fw8);
+  line-height: 2em;
+}
+.cart-summary .cart-total > a {
+  width: var(--percent100);
+  display: block;
+  text-align: center;
+  margin-top: 2em;
+  font-style: 1.25em;
 }
 /* -------------------- 
  * 14.MODAL
@@ -2209,7 +2217,33 @@ input[type="range"]::-webkit-slider-thumb {
     height: 160px;
   }
 }
-
+@media screen and (max-width:639) {
+  #cart-table thead {
+    display: none;
+  }
+  #cart-table tbody tr{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    align-items: center;
+  }
+  #cart-table tbody tr td:first-child{
+    width: var(--percent100);
+    min-width: var(--percent100);
+    position: relative;
+  }
+  #cart-table tbody tr td:not(:first-child){
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: var(--percent100);
+  }
+  #cart-table tbody tr td:last-child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+  }
+}
 @media screen and (min-width: 768px) {
   .products .price .current {
     font-size: 1.25em;
